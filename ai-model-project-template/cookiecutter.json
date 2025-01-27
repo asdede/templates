@@ -1,0 +1,6 @@
+{
+    "project_name": "ai-project",
+    "author_name": "asdede",
+    "description": "Template for training ai models in docker with jupyternotebooks. Supports cuda",
+    "version": "1.0.0"
+}
