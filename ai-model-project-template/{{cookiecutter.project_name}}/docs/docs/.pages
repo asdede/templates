@@ -1,0 +1,12 @@
+
+nav:
+    - index.md
+    - Setup.md
+    - "Models": Models
+    - "App": App
+    - "Modules": Modules
+    - "Guides": Guides
+    - "Tests": Tests
+    - ....
+    - Troubleshooting.md
+    - References.md

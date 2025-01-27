@@ -36,8 +36,6 @@ services:
     working_dir: /docs
     command: ["serve","--dev-addr=0.0.0.0:8000","--watch=docs"]
 
-volumes:
-
 networks:
   jupyterhub-network:
     external: false
