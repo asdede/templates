@@ -8,8 +8,8 @@ services:
     container_name: jupyter
     volumes:
       - ./data:/home/jovyan/work/data
-      - ./notebooks:/home/jovyan/notebooks
-      - ./src:/home/jovyan/src
+      - ./notebooks:/home/jovyan/work/notebooks
+      - ./src:/home/jovyan/work/src
     ports:
       - 8888:8888
     environment:
