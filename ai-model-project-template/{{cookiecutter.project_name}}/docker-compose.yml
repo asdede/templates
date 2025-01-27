@@ -1,0 +1,41 @@
+# docker-compose.yml
+version: "3"
+services:
+  datascience-notebook:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile.jupyter
+    container_name: jupyter
+    volumes:
+      - ./data:/home/jovyan/work/data
+      - ./notebooks:/home/jovyan/notebooks
+      - ./src:/home/jovyan/src
+    ports:
+      - 8888:8888
+    environment:
+      - JUPYTER_TOKEN=password
+      - GRANT_SUDO=yes
+      - JUPYTER_ENABLE_LAB=yes
+    networks:
+      - jupyterhub-network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+  mkdocs:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile.docs
+    ports:
+      - 8000:8000
+    volumes:
+      - ./docs:/docs
+    working_dir: /docs
+    command: ["serve","--dev-addr=0.0.0.0:8000","--watch=docs"]
+
+networks:
+  jupyterhub-network:
+    external: false

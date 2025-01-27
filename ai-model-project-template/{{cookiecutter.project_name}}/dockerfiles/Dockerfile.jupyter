@@ -1,0 +1,67 @@
+# Base image
+FROM quay.io/jupyter/datascience-notebook:latest
+
+# Set environment variables
+ENV PATH="$PATH:$HOME/.yarn/bin"
+
+# Update system and install general dependencies
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    software-properties-common \
+    npm \
+    tzdata \
+    curl \
+    wget \
+    unzip \
+    zsh \
+    vim \
+    htop \
+    gfortran \
+    python3-dev \
+    libpq-dev \
+    libclang-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Node.js tools
+RUN npm install -g yarn npm@10.2.5 n && \
+    n stable && \
+    npm install -g npm@latest
+
+# Upgrade pip and install Python packages
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir \
+        jupyterlab-spreadsheet-editor \
+        hatch \
+        jupyterlab-github \
+        jupyterlab-system-monitor \
+        scikit-learn \
+        numpy \
+        pandas \
+        matplotlib \
+        seaborn \
+        ipywidgets \
+        tensorflow \
+        scipy \
+        optuna \
+        cupy-cuda111 \
+        numba \
+        tensorflow-hub \
+        tensorflow-datasets \
+        tensorflowjs \
+        torch \
+        torchvision \
+        torchaudio
+
+# Prepare working directory
+RUN mkdir -p /home/jovyan/work && \
+    chmod -R 777 /home/jovyan/work
+
+# Switch back to the default user
+USER ${NB_UID}
+
+# Set the working directory
+WORKDIR /home/jovyan/work
+
+# Default command
+CMD ["start-notebook.sh", "--no-browser"]
