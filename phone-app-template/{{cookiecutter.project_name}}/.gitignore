@@ -1,0 +1,74 @@
+# General
+.DS_Store
+Thumbs.db
+
+# Node.js / React Native
+node_modules/
+npm-debug.log*
+yarn-error.log
+metro.config.js
+.expo/
+.expo-shared/
+.expo-go/
+dist/
+build/
+android/.gradle/
+android/app/build/
+android/.idea/
+ios/Pods/
+ios/build/
+ios/.idea/
+*.xcworkspace
+*.xcodeproj
+*.pbxproj
+
+# React Native: Environment Files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+venv/
+env/
+*.egg-info/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual Environment
+.venv/
+ENV/
+bin/
+lib/
+lib64/
+share/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Pytest / Testing
+.tox/
+.coverage
+.cache/
+nosetests.xml
+pytest_cache/
+junitxml/
+
+# IDE / Editor Settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Misc
+logs/
+debug.log
+*.pid
+*.seed
+*.pyc
+*.pyo

@@ -35,6 +35,24 @@ Includes:
 - jupyternotebook in docker
 - docs in docker
 
+## Phone app template
+`pipx run cookiecutter https://github.com/asdede/templates --directory="phone-app-template"`
+
+Template for react-native phone app projects with backend. Remember that you need Android studio and neccesary libraries etc for it.
+
+Includes:
+- Backend in dockerfile
+- Documentation in docker
+
+**IMPORTANT**
+Dependeciens:
+- npm, Node.js
+
+Start with `npm init`
+
+**.gitignore has basics for python and react-native, BUT CHECK IT!!**
+
+
 #### Setup envivorment
 
 *create env?*
