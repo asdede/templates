@@ -14,6 +14,15 @@ https://github.com/cookiecutter/cookiecutter
 ## Microservices
 `pipx run cookiecutter https://github.com/asdede/templates --directory="microservice-template"`
 
+Template for microservice project.
+
+Has basic dockerfiles etc for microservice project:
+- App (Front)
+- Backend
+- API
+
+Has template app or frontend made with streamlit.
+
 ## Ai model project
 `pipx run cookiecutter https://github.com/asdede/templates --directory="ai-model-project-template"`
 
