@@ -41,14 +41,38 @@ Includes:
 Template for react-native phone app projects with backend. Remember that you need Android studio and neccesary libraries etc for it.
 
 Includes:
+- API in dockerfile
 - Backend in dockerfile
+- Example functions for API and Backend. (remember to change BACKEND_URL for testing locally without docker)
 - Documentation in docker
+- Docker-compose file to set it up
 
 **IMPORTANT**
 Dependeciens:
 - npm, Node.js
+- Android SDK (Android studio is recommended)
 
-Start with `npm init`
+*Sdk setup*
+
+```bash
+#Add this to ~/.bashrc or ~/.zshrc | eg. nano ~/.bashrc
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH
+#then run in terminal
+source ~/.bashrc  # or source ~/.zshrc
+```
+
+Start with
+
+```bash
+cd App
+npm install
+
+#Start template app with
+npx expo start # Or with react-native
+```
+
+
 
 **.gitignore has basics for python and react-native, BUT CHECK IT!!**
 
