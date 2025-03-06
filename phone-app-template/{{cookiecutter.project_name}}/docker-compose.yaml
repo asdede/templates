@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile.api
+    ports:
+      - "8888:8888"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile.backend
+    ports:
+      - "5000:5000"
+
+  mkdocs:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile.docs
+    ports:
+      - 8000:8000
+    volumes:
+      - ./docs:/docs
+    working_dir: /docs
+    command: ["serve","--dev-addr=0.0.0.0:8000","--watch=docs"]
+    
+    
